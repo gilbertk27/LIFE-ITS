@@ -31,6 +31,8 @@ public class SkemCard : MonoBehaviour{
     // If you left click over the dice then RollTheDice coroutine is started
     private void OnMouseDown()
     {
+        StartCoroutine("RollTheCard");
+
         ac.PlayOneShot(ac.clip);
 
         if (Input.GetMouseButtonDown(0))
@@ -45,8 +47,6 @@ public class SkemCard : MonoBehaviour{
             }
         }
         _Skemanimator.SetBool("Skem_pop", Skem_pop);
-
-        StartCoroutine("RollTheCard");
     }
 
     //private void OnMouseOver()

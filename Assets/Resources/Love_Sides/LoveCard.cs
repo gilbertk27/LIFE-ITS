@@ -32,23 +32,29 @@ public class LoveCard : MonoBehaviour {
         // If you left click over the dice then RollTheDice coroutine is started
         private void OnMouseDown()
         {
-
+        StartCoroutine("RollTheCard");
+        _loveanimator.ResetTrigger("Love_pop");
         ac.PlayOneShot(ac.clip);
 
         if (Input.GetMouseButtonDown(0))
-            {
+        {
             Vector3 wp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             BoxCollider2D coll = Love.GetComponent<BoxCollider2D>();
 
             if (coll.OverlapPoint(wp))
                 {
-                    Love_pop = true;
-
+                     _loveanimator.SetTrigger("Love_pop");
                 }
-            }
-            _loveanimator.SetBool("Love_pop", Love_pop);
-            StartCoroutine("RollTheCard");
+            //_loveanimator.SetTrigger("Love_pop");
         }
+       // StartCoroutine("Resseter");
+        }
+
+    //private void Resseter()
+    //{
+    //    _loveanimator.ResetTrigger("Love_pop");
+    //}
+
 
     //private void OnMouseOver()
     //{
@@ -96,17 +102,6 @@ public class LoveCard : MonoBehaviour {
         // Show final dice value in Console
         Debug.Log(finalSide);
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            Vector3 wp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            BoxCollider2D coll = Love.GetComponent<BoxCollider2D>();
-
-            if (coll.OverlapPoint(wp))
-            {
-                Love_pop = true;
-
-            }
-        }
 
     }
 }
