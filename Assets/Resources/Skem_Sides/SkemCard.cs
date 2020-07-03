@@ -37,16 +37,16 @@ public class SkemCard : MonoBehaviour{
 
         if (Input.GetMouseButtonDown(0))
         {
+            _Skemanimator.ResetTrigger("Skem_pop");
             Vector3 wp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             BoxCollider2D coll = Skem.GetComponent<BoxCollider2D>();
 
             if (coll.OverlapPoint(wp))
             {
-                Skem_pop = true;
-
+                _Skemanimator.SetTrigger("Skem_pop");
             }
         }
-        _Skemanimator.SetBool("Skem_pop", Skem_pop);
+        //_Skemanimator.SetBool("Skem_pop", Skem_pop);
     }
 
     //private void OnMouseOver()

@@ -33,18 +33,19 @@ public class LoveCard : MonoBehaviour {
         private void OnMouseDown()
         {
         StartCoroutine("RollTheCard");
-        _loveanimator.ResetTrigger("Love_pop");
+        //_loveanimator.ResetTrigger("Love_pop");
         ac.PlayOneShot(ac.clip);
 
         if (Input.GetMouseButtonDown(0))
         {
+            _loveanimator.ResetTrigger("Love_pop");
             Vector3 wp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             BoxCollider2D coll = Love.GetComponent<BoxCollider2D>();
 
             if (coll.OverlapPoint(wp))
-                {
-                     _loveanimator.SetTrigger("Love_pop");
-                }
+            {
+                _loveanimator.SetTrigger("Love_pop");
+            }
             //_loveanimator.SetTrigger("Love_pop");
         }
        // StartCoroutine("Resseter");
