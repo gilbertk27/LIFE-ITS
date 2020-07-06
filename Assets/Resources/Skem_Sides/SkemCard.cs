@@ -5,7 +5,7 @@ using UnityEngine;
 public class SkemCard : MonoBehaviour{ 
     public GameObject Skem = null;
     private Animator _Skemanimator = null;
-    public bool Skem_pop = false;
+    //public bool Skem_pop = false;
     // Array of dice sides sprites to load from Resources folder
     private Sprite[] cardSides;
 
@@ -37,16 +37,19 @@ public class SkemCard : MonoBehaviour{
 
         if (Input.GetMouseButtonDown(0))
         {
-            _Skemanimator.ResetTrigger("Skem_pop");
-            Vector3 wp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            BoxCollider2D coll = Skem.GetComponent<BoxCollider2D>();
+            //_Skemanimator.ResetTrigger("Skem_pop");
+            //Vector3 wp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            //BoxCollider2D coll = Skem.GetComponent<BoxCollider2D>();
 
-            if (coll.OverlapPoint(wp))
-            {
+            //if (coll.OverlapPoint(wp))
+            //{
                 _Skemanimator.SetTrigger("Skem_pop");
-            }
+            //}
         }
-        //_Skemanimator.SetBool("Skem_pop", Skem_pop);
+        if (Input.GetMouseButtonDown(1))
+        {
+            _Skemanimator.ResetTrigger("Skem_pop");
+        }
     }
 
     //private void OnMouseOver()
