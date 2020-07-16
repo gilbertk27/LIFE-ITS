@@ -30,51 +30,50 @@ public class LoveCard : MonoBehaviour {
 	}
 
         // If you left click over the dice then RollTheDice coroutine is started
-        private void OnMouseDown()
-        {
+    // private void OnMouseDown()
+    // {
+    //     StartCoroutine("RollTheCard");
+    //     //_loveanimator.ResetTrigger("Love_pop");
+    //     ac.PlayOneShot(ac.clip);
+
+    //     if (Input.GetMouseButtonDown(0))
+    //     {
+    //         _loveanimator.ResetTrigger("Love_pop");
+    //         Vector3 wp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    //         BoxCollider2D coll = Love.GetComponent<BoxCollider2D>();
+
+    //         if (coll.OverlapPoint(wp))
+    //         {
+    //             _loveanimator.SetTrigger("Love_pop");
+    //         }
+    //         //_loveanimator.SetTrigger("Love_pop");
+    //     }
+    //    // StartCoroutine("Resseter");
+    // }
+
+    
+    private void OnMouseDown()
+    {
         StartCoroutine("RollTheCard");
-        //_loveanimator.ResetTrigger("Love_pop");
+
         ac.PlayOneShot(ac.clip);
 
         if (Input.GetMouseButtonDown(0))
         {
-            _loveanimator.ResetTrigger("Love_pop");
-            Vector3 wp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            BoxCollider2D coll = Love.GetComponent<BoxCollider2D>();
+            //_Skemanimator.ResetTrigger("Skem_pop");
+            //Vector3 wp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            //BoxCollider2D coll = Skem.GetComponent<BoxCollider2D>();
 
-            if (coll.OverlapPoint(wp))
-            {
+            //if (coll.OverlapPoint(wp))
+            //{
                 _loveanimator.SetTrigger("Love_pop");
-            }
-            //_loveanimator.SetTrigger("Love_pop");
+            //}
         }
-       // StartCoroutine("Resseter");
+        if (Input.GetMouseButtonDown(1))
+        {
+            _loveanimator.ResetTrigger("Love_pop");
         }
-
-    //private void Resseter()
-    //{
-    //    _loveanimator.ResetTrigger("Love_pop");
-    //}
-
-
-    //private void OnMouseOver()
-    //{
-    //    switch (finalSide)
-    //    {
-    //        case 1:
-    //            cardSides = Resources.Load<Sprite>("Love_Sides/Side1.png");
-    //            break;
-    //        case 2:
-    //            cardSides = Resources.Load<Sprite>("Love_Sides/Side2.png");
-    //            break;
-    //        case 3:
-    //            cardSides = Resources.Load<Sprite>("Love_Sides/Side3.png");
-    //            break;
-    //    }
-    //    If(Input.GetMouseButtonDown(1)){
-
-    //    }
-    //}
+    }
 
     private IEnumerator RollTheCard()
     {
