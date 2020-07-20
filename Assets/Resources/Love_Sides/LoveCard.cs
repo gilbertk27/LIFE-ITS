@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LoveCard : MonoBehaviour {
-    public GameObject Love = null;
-    public bool Love_pop = false;
     private Animator _loveanimator = null;
 
     // Array of dice sides sprites to load from Resources folder
@@ -51,29 +49,38 @@ public class LoveCard : MonoBehaviour {
     //    // StartCoroutine("Resseter");
     // }
 
-    
+      
     private void OnMouseDown()
     {
-        StartCoroutine("RollTheCard");
-
-        ac.PlayOneShot(ac.clip);
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            //_Skemanimator.ResetTrigger("Skem_pop");
-            //Vector3 wp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            //BoxCollider2D coll = Skem.GetComponent<BoxCollider2D>();
-
-            //if (coll.OverlapPoint(wp))
-            //{
-                _loveanimator.SetTrigger("Love_pop");
-            //}
-        }
-        if (Input.GetMouseButtonDown(1))
-        {
-            _loveanimator.ResetTrigger("Love_pop");
-        }
+         StartCoroutine("RollTheCard");
+         ac.PlayOneShot(ac.clip);
+         //GetComponent<Animation>().Play("Idle");
+        _loveanimator.SetTrigger("Love_pop");
+         GetComponent<Animation>().Play("Idle");
     }
+    
+    // private void OnMouseDown()
+    // {
+    //     StartCoroutine("RollTheCard");
+
+    //     ac.PlayOneShot(ac.clip);
+
+    //     if (Input.GetMouseButtonDown(0))
+    //     {
+    //         //_Skemanimator.ResetTrigger("Skem_pop");
+    //         //Vector3 wp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    //         //BoxCollider2D coll = Skem.GetComponent<BoxCollider2D>();
+
+    //         //if (coll.OverlapPoint(wp))
+    //         //{
+    //             _loveanimator.SetTrigger("Love_pop");
+    //         //}
+    //     }
+    //     if (Input.GetMouseButtonDown(1))
+    //     {
+    //         _loveanimator.ResetTrigger("Love_pop");
+    //     }
+    // }
 
     private IEnumerator RollTheCard()
     {
@@ -92,7 +99,7 @@ public class LoveCard : MonoBehaviour {
             rend.sprite = cardSides[randomCardSide];
 
             // Pause before next itteration
-            yield return new WaitForSeconds(0.11f);
+            yield return new WaitForSeconds(0.06f);
         }
 
         // Assigning final side so you can use this value later in your game
@@ -101,7 +108,6 @@ public class LoveCard : MonoBehaviour {
 
         // Show final dice value in Console
         Debug.Log(finalSide);
-
 
     }
 }
